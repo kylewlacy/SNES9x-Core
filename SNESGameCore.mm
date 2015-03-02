@@ -29,6 +29,8 @@
 #import <OpenEmuBase/OERingBuffer.h>
 #import <OpenGL/gl.h>
 
+#include "fmemopen/fmemopen.h"
+#include "fmemopen/open_memstream.h"
 #include "memmap.h"
 #include "pixform.h"
 #include "gfx.h"
@@ -294,6 +296,31 @@ static void FinalizeSamplesAudioCallback(void *)
 - (BOOL)loadStateFromFileAtPath: (NSString *) fileName
 {
     return S9xUnfreezeGame([fileName UTF8String]) ? YES : NO;
+}
+
+- (NSData *)serializeStateWithError:(NSError **)outError
+{
+    char *stream;
+    size_t streamSize;
+    STREAM memStream = open_memstream(&stream, &streamSize);
+    
+    S9xFreezeToStream(memStream);
+    
+    fclose(memStream);
+    
+    return [NSData dataWithBytesNoCopy:(void *)stream length:streamSize];
+}
+
+- (BOOL)deserializeState:(NSData *)state withError:(NSError **)outError
+{
+    const void *stream = [state bytes];
+    size_t streamSize = [state length];
+    STREAM dataStream = fmemopen((void *)stream, streamSize, "r");
+    
+    int result = S9xUnfreezeFromStream(dataStream);
+    
+    fclose(dataStream);
+    return result == SUCCESS;
 }
 
 #pragma mark - Cheats
