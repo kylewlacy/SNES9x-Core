@@ -35,6 +35,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		272498D21A9D956300C43CBA /* fmemopen.c in Sources */ = {isa = PBXBuildFile; fileRef = 272498CD1A9D956300C43CBA /* fmemopen.c */; };
+		272498D41A9D956300C43CBA /* open_memstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 272498D01A9D956300C43CBA /* open_memstream.c */; };
 		3DA5C31814DCF0180029660B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA5C31714DCF0180029660B /* libz.dylib */; };
 		826C1B1F0F420C2200FB9014 /* SNESGameCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 826C1B1E0F420C2200FB9014 /* SNESGameCore.mm */; };
 		828F16CB0F43A10000FD7321 /* APPL.icns in Resources */ = {isa = PBXBuildFile; fileRef = 828F16CA0F43A10000FD7321 /* APPL.icns */; };
@@ -139,6 +141,11 @@
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		272498CD1A9D956300C43CBA /* fmemopen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fmemopen.c; sourceTree = "<group>"; };
+		272498CE1A9D956300C43CBA /* fmemopen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmemopen.h; sourceTree = "<group>"; };
+		272498CF1A9D956300C43CBA /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		272498D01A9D956300C43CBA /* open_memstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = open_memstream.c; sourceTree = "<group>"; };
+		272498D11A9D956300C43CBA /* open_memstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = open_memstream.h; sourceTree = "<group>"; };
 		3DA5C31714DCF0180029660B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8233FF2814C1E1B100FC4547 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		8233FF2A14C1E1C100FC4547 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -321,6 +328,7 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				272498CC1A9D956300C43CBA /* fmemopen */,
 				C6480FFA1364B1CF0094FA33 /* OESNESSystemResponderClient.h */,
 				826C1B1D0F420C2200FB9014 /* SNESGameCore.h */,
 				826C1B1E0F420C2200FB9014 /* SNESGameCore.mm */,
@@ -355,6 +363,18 @@
 				8D5B49B6048680CD000E48DA /* SNES9x.oecoreplugin */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		272498CC1A9D956300C43CBA /* fmemopen */ = {
+			isa = PBXGroup;
+			children = (
+				272498CD1A9D956300C43CBA /* fmemopen.c */,
+				272498CE1A9D956300C43CBA /* fmemopen.h */,
+				272498CF1A9D956300C43CBA /* LICENSE.txt */,
+				272498D01A9D956300C43CBA /* open_memstream.c */,
+				272498D11A9D956300C43CBA /* open_memstream.h */,
+			);
+			path = fmemopen;
 			sourceTree = "<group>";
 		};
 		32C88E010371C26100C91783 /* Other Sources */ = {
@@ -593,6 +613,7 @@
 			files = (
 				826C1B1F0F420C2200FB9014 /* SNESGameCore.mm in Sources */,
 				C67F02030FC200A6009C6CD6 /* SNESOESupport.mm in Sources */,
+				272498D21A9D956300C43CBA /* fmemopen.c in Sources */,
 				94790D7A14C0C46900B30798 /* apu.cpp in Sources */,
 				94790D7C14C0C46900B30798 /* SNES_SPC.cpp in Sources */,
 				94790D7D14C0C46900B30798 /* SNES_SPC_misc.cpp in Sources */,
@@ -616,6 +637,7 @@
 				94790D8F14C0C46900B30798 /* dsp.cpp in Sources */,
 				94790D9014C0C46900B30798 /* dsp1.cpp in Sources */,
 				94790D9114C0C46900B30798 /* dsp2.cpp in Sources */,
+				272498D41A9D956300C43CBA /* open_memstream.c in Sources */,
 				94790D9214C0C46900B30798 /* dsp3.cpp in Sources */,
 				94790D9314C0C46900B30798 /* dsp4.cpp in Sources */,
 				94790D9414C0C46900B30798 /* fxdbg.cpp in Sources */,
